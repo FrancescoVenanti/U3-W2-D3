@@ -1,7 +1,30 @@
+import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
+	const [data, setData] = useState([]);
+	const params = useParams();
+
+	const fetchData = async () => {
+		const endpoint = `http://www.omdbapi.com/?apikey=e9b4ccd8&i=${params.movieId}`;
+		try {
+			const resp = await fetch(endpoint);
+			if (resp.ok) {
+				const response = await resp.json();
+				console.log(response);
+				setData(response);
+				// this.setState({ isLoaded: true });
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	return (
 		<Container>
 			<Row className=" justify-content-center">

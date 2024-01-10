@@ -5,6 +5,7 @@ import TopBar from "./components/TopBar";
 import Myfooter from "./components/MyFooter";
 import Gallery from "./components/Gallery";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
 	return (
@@ -28,6 +29,7 @@ function App() {
 					<Route path="Movies" element={<Gallery searchValue="Devil" title="Movies" />} />
 					<Route path="Recenti" element={<Gallery searchValue="Iron man" title="Aggiunti di recente" />} />
 					<Route path="Preferiti" element={<Gallery searchValue="Rocco" title="Preferiti" />} />
+					<Route path="/:movieId" element={<MovieDetails />} />
 				</Routes>
 				<Myfooter />
 			</BrowserRouter>
