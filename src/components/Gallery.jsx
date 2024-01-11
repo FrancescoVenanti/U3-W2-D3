@@ -35,7 +35,7 @@ const Gallery = (props) => {
 			<Row className="g-1 text-light">
 				{movies.map((movie) => (
 					<Col className="hover-zoom" lg="2" xs={6} md={4} key={movie.imdbID}>
-						<Link to={`/${movie.imdbID}`}>
+						<Link to={`/detail/${movie.imdbID}`}>
 							<div>
 								<img
 									src={movie.Poster}
